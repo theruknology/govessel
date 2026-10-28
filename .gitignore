@@ -1,0 +1,43 @@
+# Build outputs and local experiments
+/bin/
+/build/
+/dist/
+/results/
+/vendor/
+*.test
+*.out
+*.prof
+*.pprof
+*.trace
+/coverage/
+
+# Local Go workspace
+go.work
+go.work.sum
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Local notes and workspace directories
+/rough.md
+/.*/
+!/.github/
+
+# Editors, OS files, and temporary files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.log
+*.tmp
+*.bak
