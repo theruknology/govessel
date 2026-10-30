@@ -1,0 +1,19 @@
+syntax = "proto3";
+package vessel.v1;
+option go_package = "github.com/theruknology/govessel/api/vessel/v1;vesselv1";
+
+// Unary, non-streaming inference. The caller's gRPC deadline is propagated to
+// queue admission and backend execution. A server default applies if omitted.
+service InferenceService {
+  rpc Infer(InferRequest) returns (InferResponse);
+}
+message InferRequest {
+  string tenant_id = 1;
+  string prompt = 2;
+  int32 max_output_tokens = 3;
+}
+message InferResponse {
+  uint64 request_id = 1;
+  string text = 2;
+  int32 output_tokens = 3;
+}
