@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.3'
+          cache: true
+      - run: make check
+      - run: make build
+      - run: make sim
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deterministic-simulation
+          path: results/simulation.jsonl
